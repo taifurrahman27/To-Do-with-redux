@@ -54,7 +54,7 @@ function App() {
             </div>
           </div>
 
-          <Button size="sm" onClick={openCreate} className="shadow-sm">
+          <Button size="lg" onClick={openCreate} className="shadow-sm">
             <PlusIcon className="size-4" />
             New Task
           </Button>
