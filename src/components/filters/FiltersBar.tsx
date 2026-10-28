@@ -23,7 +23,7 @@ export function FiltersBar() {
 
       <div className="grid grid-cols-3 gap-2 sm:flex sm:items-center">
         <Select value={filters.status} onValueChange={(value) => dispatch(setStatus(value as TaskStatus | "all"))}>
-          <SelectTrigger className="min-w-[7.5rem]"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="min-w-30"><SelectValue /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All statuses</SelectItem>
             <SelectItem value="pending">Pending</SelectItem>
@@ -33,7 +33,7 @@ export function FiltersBar() {
         </Select>
 
         <Select value={filters.priority} onValueChange={(value) => dispatch(setPriority(value as TaskPriority | "all"))}>
-          <SelectTrigger className="min-w-[7.5rem]"><SelectValue /></SelectTrigger>
+          <SelectTrigger className="min-w-30"><SelectValue /></SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All priorities</SelectItem>
             <SelectItem value="high">High</SelectItem>
@@ -43,7 +43,7 @@ export function FiltersBar() {
         </Select>
 
         <Select value={filters.sortBy} onValueChange={(value) => dispatch(setSortBy(value as SortBy))}>
-          <SelectTrigger className="min-w-[7.5rem]"><SelectValue>{SORT_LABEL[filters.sortBy]}</SelectValue></SelectTrigger>
+          <SelectTrigger className="min-w-30"><SelectValue>{SORT_LABEL[filters.sortBy]}</SelectValue></SelectTrigger>
           <SelectContent>
             {(Object.keys(SORT_LABEL) as SortBy[]).map((value) => <SelectItem key={value} value={value}>{SORT_LABEL[value]}</SelectItem>)}
           </SelectContent>
