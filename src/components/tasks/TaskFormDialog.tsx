@@ -29,6 +29,7 @@ import {
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { addTask, updateTask } from "@/store/tasksSlice";
 import type { TaskPriority, TaskStatus } from "@/types";
+import { TASKS_STATUS } from "@/redux/features/tasks/taslks.constant";
 
 interface TaskFormValues {
   title: string;
@@ -235,17 +236,14 @@ export function TaskFormDialog({
                       </SelectTrigger>
 
                       <SelectContent className="border-white/10 bg-[#1b2940] text-slate-200">
-                        <SelectItem value="pending">
-                          <Option dot="bg-slate-400">Pending</Option>
-                        </SelectItem>
-
-                        <SelectItem value="in-progress">
-                          <Option dot="bg-blue-400">In progress</Option>
-                        </SelectItem>
-
-                        <SelectItem value="done">
-                          <Option dot="bg-emerald-400">Done</Option>
-                        </SelectItem>
+                        {
+                          TASKS_STATUS
+                          .map((status) => (
+                            <SelectItem key={status} value={status}>
+                              {status.charAt(0).toUpperCase() + status.slice(1)}
+                            </SelectItem>
+                          ))
+                        }
                       </SelectContent>
                     </Select>
                   )}

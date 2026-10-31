@@ -1,0 +1,1 @@
+export type TTasksType= "pending" | "in-progress" | "done";
